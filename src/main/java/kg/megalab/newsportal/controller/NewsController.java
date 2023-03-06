@@ -1,14 +1,10 @@
 package kg.megalab.newsportal.controller;
 
-import javax.validation.Valid;
-
 import kg.megalab.newsportal.dto.request.CommentRequest;
 import kg.megalab.newsportal.dto.request.NewsRequest;
-import kg.megalab.newsportal.dto.response.status.SuccessStatusResponse;
 import kg.megalab.newsportal.dto.response.data.DetailedNewsDto;
 import kg.megalab.newsportal.dto.response.data.NewsDto;
-import kg.megalab.newsportal.model.Comment;
-import kg.megalab.newsportal.repository.CommentsRepository;
+import kg.megalab.newsportal.dto.response.status.SuccessStatusResponse;
 import kg.megalab.newsportal.service.NewsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -17,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Arrays;
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -26,7 +22,6 @@ import java.util.List;
 public class NewsController {
 
     private final NewsService newsService;
-    private final CommentsRepository commentsRepository;
 
     @GetMapping
     public Page<NewsDto> getAllNews(
@@ -73,10 +68,6 @@ public class NewsController {
     @DeleteMapping("/{id}/favourites")
     public ResponseEntity<SuccessStatusResponse> deleteNewsFromFavourites(@PathVariable int id) {
         return newsService.deleteNewsFromFavourites(id);
-    }
-
-    @GetMapping("/{id}/comments")
-    public void getAllNewsComments(@PathVariable int id) {
     }
 
     @PostMapping("/{id}/comments")

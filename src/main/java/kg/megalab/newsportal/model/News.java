@@ -35,9 +35,6 @@ public class News {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-//    @ManyToMany(mappedBy = "favouriteNews")
-//    List<User> likes;
-
     public News(String title, String shortDescription, String text, Category category, LocalDate date, User user) {
         this.title = title;
         this.shortDescription = shortDescription;

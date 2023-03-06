@@ -27,11 +27,6 @@ public class User {
     private String password;
     private String avatar;
 
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    @JoinTable(name = "favourite_news", joinColumns = @JoinColumn(name = "user_id"),
-//               inverseJoinColumns = @JoinColumn(name = "news_id"))
-//    List<News> favouriteNews;
-//
     public User(String firstName, String lastName, String username, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
